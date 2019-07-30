@@ -48,13 +48,13 @@ def process_text(file):  # TODO
 
 def process_image(file):
     print "Processing image: %s" % file.name
-    fname_pure = re.search('(.+?).png', file.name)
+    fname_pure = re.search('^(.+)/([^/]+).png', file.name)
 
     A = 256 * imread(file.name)
     A = A[:, :, 2] + 0.5*A[:, :, 0]
     A = gaussian_filter(A, 2)  # smoothing
     numpy2stl(A,
-              OUTPUT_DIR + fname_pure.group(1) + ".stl",
+              OUTPUT_DIR + fname_pure.group(2) + ".stl",
               scale=0.05,
               mask_val=5.,
               solid=True)
