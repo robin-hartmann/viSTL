@@ -1,4 +1,5 @@
 import argparse
+import re
 
 from stl_tools import numpy2stl, text2png
 from scipy.ndimage import gaussian_filter
@@ -7,6 +8,7 @@ from pylab import imread
 MAX_HEIGHT = 200
 MAX_WIDTH = 200
 MAX_DEPTH = 50
+OUTPUT_DIR = "stl_out/"
 
 
 def test_img2stl_helloworld():
@@ -44,8 +46,18 @@ def process_text(file):  # TODO
     print "Processing text: %s" % file.name
 
 
-def process_image(file):  # TODO
+def process_image(file):
     print "Processing image: %s" % file.name
+    fname_pure = re.search('(.+?).png', file.name)
+
+    A = 256 * imread(file.name)
+    A = A[:, :, 2] + 0.5*A[:, :, 0]
+    A = gaussian_filter(A, 2)  # smoothing
+    numpy2stl(A,
+              OUTPUT_DIR + fname_pure.group(1) + ".stl",
+              scale=0.05,
+              mask_val=5.,
+              solid=True)
 
 
 def validate_inputs(inputs):
