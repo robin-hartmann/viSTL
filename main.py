@@ -47,6 +47,7 @@ def process_text(file):  # TODO
 
 
 def process_image(file):
+    # TODO: invertion flag?
     print "Processing image: %s" % file.name
     fname_pure = re.search('^(.+)/([^/]+).png', file.name)
 
@@ -55,8 +56,8 @@ def process_image(file):
     A = gaussian_filter(A, 2)  # smoothing
     numpy2stl(A,
               OUTPUT_DIR + fname_pure.group(2) + ".stl",
-              scale=0.05,
-              mask_val=5.,
+              scale=0.08,
+              min_thickness_percent=0.2,
               solid=True)
 
 
