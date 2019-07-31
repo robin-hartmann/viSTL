@@ -2,22 +2,26 @@
 # -*- coding: utf-8 -*-
 
 import os
-import sys
 import argparse
 import re
 import numpy
 
-from stl_tools import numpy2stl, text2png
+from stl_tools import numpy2stl
 from scipy.ndimage import gaussian_filter
 from pylab import imread
-from PIL import Image
+from PIL import Image,ImageDraw,ImageFont
 import PIL.ImageOps
+import pylab
+
 
 MAX_HEIGHT = 200
 MAX_WIDTH = 200
 MAX_DEPTH = 40
 OUTPUT_DIR = "stl_out/"
 DEFAULT_INPUT_DIR = "inputs/"
+MODE_CREATION_PNG = "RGBA"
+PATH_FONT = "third/fonts/applebraille.ttf"
+TEMP_PATH_PNG_TEST = "examples/brailleToPng.png"
 
 
 def test_img2stl():
@@ -37,8 +41,21 @@ def test_txt2braille():
     print "TODO"
 
 
-def test_braille2stl():
-    print "TODO"
+def test_braille2png(braille):
+    back_color = (0, 0, 0, 255)
+    text_color = (255, 255, 255)
+    #TODO: Fix size by image creation
+    img = Image.new(MODE_CREATION_PNG, (800, 100), color=back_color)
+    font = ImageFont.truetype(PATH_FONT, 100)
+    d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
+    d.text((10, 10), unicode(braille), fill=text_color, font=font)
+    img.save(TEMP_PATH_PNG_TEST)
+
+def test_png_braille2stl():
+    A = 256 * pylab.imread(TEMP_PATH_PNG_TEST)
+    A = A[:, :, 2] + 4 * A[:, :, 0]
+    A = gaussian_filter(A, 2)
+    numpy2stl(A, "examples/brailleToPng.stl", scale=0.009, solid=True)
 
 
 def process_input(file, args):
