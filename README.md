@@ -14,8 +14,8 @@
 
 ### All platforms except Windows
 
-- `lou_translate` in PATH (from [liblouis](https://github.com/liblouis/liblouis))
-    - use package manager of os to install
+- `lou_translate` in PATH
+    - use package manager of os to install [liblouis](https://github.com/liblouis/liblouis)
         - Arch Linux: `sudo pacman -S liblouis`
 
 ## Installation
