@@ -53,8 +53,7 @@ def process_image(file, args):
     print "Processing image: %s" % file.name
     fname_pure = re.search('^(.+)/([^/]+).png', file.name)
     if args.i is True:
-        print "Inverting image..."
-        A = 256 * invert_image(file.name)
+        A = invert_image(file.name)
     else:
         A = 256 * imread(file.name)
 
