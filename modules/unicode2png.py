@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
-MODE_CREATION_PNG = "RGBA"
-PATH_FONT = "third/fonts/applebraille.ttf"
+MODE_CREATION_PNG = 'RGBA'
+PATH_FONT = 'third/fonts/applebraille.ttf'
 
 
 def unicode2png(text, fname):

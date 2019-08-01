@@ -7,7 +7,7 @@ from png2stl import png2stl
 
 def test_img2stl():
     fname = EXAMPLES_DIR + 'hello_world.png'
-    print('Processing test image: %s' % fname)
+    print('Processing test image: "%s"' % fname)
     png2stl(
         fname,
         OUTPUT_DIR,
@@ -18,8 +18,8 @@ def test_img2stl():
 
 def test_braille2stl():
     braille = u"⠠⠓⠑⠇⠇⠕⠀⠠⠸⠺⠖"
-    print("Processing braille: '%s'" % "Hello World!")
-    png = DEFAULT_INPUT_DIR + "braille_to_png.png"
+    print('Processing braille: "%s"' % 'Hello World!')
+    png = DEFAULT_INPUT_DIR + 'braille_to_png.png'
     unicode2png(braille, png)
     png2stl(
         png,
