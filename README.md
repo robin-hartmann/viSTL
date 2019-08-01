@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [**viSTL: Visual to .STL**](#orgbca6e24)
-    1.  [Requirements](#org276a30f)
-        1.  [All platforms](#org51d9b18)
-        2.  [Linux](#org01675ba)
-        3.  [MacOS](#orgcdbffbd)
-        4.  [Windows](#org38d81df)
-        5.  [All others platforms except Windows](#org9fdc9a6)
-    2.  [Installation](#org1483548)
-    3.  [Running in CLI](#orgc5aac58)
-        1.  [Getting help](#org0f4f52b)
-        2.  [Examples](#org40552d5)
-        3.  [Additional options](#org162737b)
+1.  [**viSTL: Visual to .STL**](#orgd638306)
+    1.  [Requirements](#org787e40b)
+        1.  [All platforms](#org3aa7344)
+        2.  [Linux](#org860b0a2)
+        3.  [MacOS](#org6d5d21e)
+        4.  [Windows](#org5475e49)
+        5.  [All others platforms except Windows](#org209427c)
+    2.  [Installation](#orge995813)
+    3.  [Running in CLI](#org5e9e586)
+        1.  [Getting help](#org82f667d)
+        2.  [Examples](#orgbbe410d)
+        3.  [Additional options](#org0527397)
 
 
-<a id="orgbca6e24"></a>
+<a id="orgd638306"></a>
 
 # **viSTL: Visual to .STL**
 
 
-<a id="org276a30f"></a>
+<a id="org787e40b"></a>
 
 ## Requirements
 
 
-<a id="org51d9b18"></a>
+<a id="org3aa7344"></a>
 
 ### All platforms
 
@@ -35,7 +35,7 @@
         pip install pipenv
 
 
-<a id="org01675ba"></a>
+<a id="org860b0a2"></a>
 
 ### Linux
 
@@ -50,7 +50,7 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
         sudo apt-get install liblouis-bin
 
 
-<a id="orgcdbffbd"></a>
+<a id="org6d5d21e"></a>
 
 ### MacOS
 
@@ -59,14 +59,14 @@ Install these packages before building the `liblouis`:
     brew install automake libtool pkg-config texinfo
 
 
-<a id="org38d81df"></a>
+<a id="org5475e49"></a>
 
 ### Windows
 
 Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
 
 
-<a id="org9fdc9a6"></a>
+<a id="org209427c"></a>
 
 ### All others platforms except Windows
 
@@ -74,7 +74,7 @@ Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
 
 
-<a id="org1483548"></a>
+<a id="orge995813"></a>
 
 ## Installation
 
@@ -83,7 +83,7 @@ The programm uses `pipenv` as the package and virtual env manager. All the depen
     pipenv install
 
 
-<a id="orgc5aac58"></a>
+<a id="org5e9e586"></a>
 
 ## Running in CLI
 
@@ -92,7 +92,7 @@ Firstly, you'll need to get into the program's virtual environment:
     pipenv shell
 
 
-<a id="org0f4f52b"></a>
+<a id="org82f667d"></a>
 
 ### Getting help
 
@@ -100,13 +100,80 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
     python main.py -h
 
+**Here is the list of possible arguments**:
 
-<a id="org40552d5"></a>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Parameter</th>
+<th scope="col" class="org-left">Bedeutung</th>
+<th scope="col" class="org-left">Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="org-left">-t</td>
+<td class="org-left">Name der Sprachtabelle in liblouis</td>
+<td class="org-left">de-g2.ctb</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+<td class="org-left">-inv</td>
+<td class="org-left">Wenn eingegeben, wird das Bild invertiert</td>
+<td class="org-left">False</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+<td class="org-left">-d</td>
+<td class="org-left">Ausgabeverzeichniss mit `.STL`-Dateien</td>
+<td class="org-left">`workspace/out_stl`</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+<td class="org-left"><inputs></td>
+<td class="org-left">Positionalles Parameter. Es werden</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">die Dateiennamen leerzeichengetrennt</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">erwartet</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<a id="orgbbe410d"></a>
 
 ### Examples
 
 -   **Converting all .PNGs and .TXTs to .STL**:
-    -   From default directory (`.workspace/in_png_txt/`):
+    -   From default directory (`workspace/in_png_txt/`):
 
             python main.py
 
@@ -119,7 +186,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
         python main.py ./examples/hello_world.png ./examples/braille.png
 
 
-<a id="org162737b"></a>
+<a id="org0527397"></a>
 
 ### Additional options
 
