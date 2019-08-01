@@ -71,9 +71,11 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
     -   From default directory (`.workspace/in_png_txt/`):
 
             python main.py
+
     -   From specific directory:
 
             python main.py -d /my/example/dir
+
 -   **Converting specific images to .STL**:
 
         python main.py ./examples/hello_world.png ./examples/braille.png
@@ -84,6 +86,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 -   **Inverting images**:
 
         python main.py -inv
+
 -   **Specifying the Braille language**:
 
         python main.py ./examples/dickens.txt -t=en-GB-g2.ctb
