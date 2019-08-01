@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 from const import EXAMPLES_DIR, OUTPUT_DIR, DEFAULT_INPUT_DIR, DEFAULT_TABLE
+from util import get_new_fname
 from text2braille import text2braille
 from unicode2png import unicode2png
 from png2stl import png2stl
 
 
 def test_img2stl():
-    fname = EXAMPLES_DIR + 'hello_world.png'
-    print('Processing test image: "%s"' % fname)
+    fname_png = EXAMPLES_DIR + 'hello_world.png'
+    print('Processing test image: "%s"' % fname_png)
+    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
     png2stl(
-        fname,
-        OUTPUT_DIR,
+        fname_png,
+        fname_stl,
         smoothing=1,
         scale=0.15,
     )
@@ -19,11 +21,12 @@ def test_img2stl():
 def test_braille2stl():
     braille = u"⠠⠓⠑⠇⠇⠕⠀⠠⠸⠺⠖"
     print('Processing braille: "%s"' % 'Hello World!')
-    png = DEFAULT_INPUT_DIR + 'braille_to_png.png'
-    unicode2png(braille, png)
+    fname_png = DEFAULT_INPUT_DIR + 'test_braille2stl.png'
+    unicode2png(braille, fname_png)
+    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
     png2stl(
-        png,
-        OUTPUT_DIR,
+        fname_png,
+        fname_stl,
         smoothing=2,
         red_factor=4,
         scale=0.012,
