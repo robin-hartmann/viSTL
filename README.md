@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [**viSTL: Visual to .STL**](#orgd638306)
-    1.  [Requirements](#org787e40b)
-        1.  [All platforms](#org3aa7344)
-        2.  [Linux](#org860b0a2)
-        3.  [MacOS](#org6d5d21e)
-        4.  [Windows](#org5475e49)
-        5.  [All others platforms except Windows](#org209427c)
-    2.  [Installation](#orge995813)
-    3.  [Running in CLI](#org5e9e586)
-        1.  [Getting help](#org82f667d)
-        2.  [Examples](#orgbbe410d)
-        3.  [Additional options](#org0527397)
+1.  [**viSTL: Visual to .STL**](#org8d22e61)
+    1.  [Requirements](#orge6d9fb3)
+        1.  [All platforms](#org855f172)
+        2.  [Linux](#org73d664f)
+        3.  [MacOS](#orgb8eba81)
+        4.  [Windows](#org65df5b4)
+        5.  [All others platforms except Windows](#org5fe3bda)
+    2.  [Installation](#org5fefaf0)
+    3.  [Running in CLI](#org1214c63)
+        1.  [Getting help](#org2899444)
+        2.  [Examples](#orgcafad96)
+        3.  [Additional options](#orgdd393fc)
 
 
-<a id="orgd638306"></a>
+<a id="org8d22e61"></a>
 
 # **viSTL: Visual to .STL**
 
 
-<a id="org787e40b"></a>
+<a id="orge6d9fb3"></a>
 
 ## Requirements
 
 
-<a id="org3aa7344"></a>
+<a id="org855f172"></a>
 
 ### All platforms
 
@@ -35,7 +35,7 @@
         pip install pipenv
 
 
-<a id="org860b0a2"></a>
+<a id="org73d664f"></a>
 
 ### Linux
 
@@ -50,7 +50,7 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
         sudo apt-get install liblouis-bin
 
 
-<a id="org6d5d21e"></a>
+<a id="orgb8eba81"></a>
 
 ### MacOS
 
@@ -59,14 +59,14 @@ Install these packages before building the `liblouis`:
     brew install automake libtool pkg-config texinfo
 
 
-<a id="org5475e49"></a>
+<a id="org65df5b4"></a>
 
 ### Windows
 
 Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
 
 
-<a id="org209427c"></a>
+<a id="org5fe3bda"></a>
 
 ### All others platforms except Windows
 
@@ -74,7 +74,7 @@ Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
 
 
-<a id="orge995813"></a>
+<a id="org5fefaf0"></a>
 
 ## Installation
 
@@ -83,7 +83,7 @@ The programm uses `pipenv` as the package and virtual env manager. All the depen
     pipenv install
 
 
-<a id="org5e9e586"></a>
+<a id="org1214c63"></a>
 
 ## Running in CLI
 
@@ -92,7 +92,7 @@ Firstly, you'll need to get into the program's virtual environment:
     pipenv shell
 
 
-<a id="org82f667d"></a>
+<a id="org2899444"></a>
 
 ### Getting help
 
@@ -114,16 +114,16 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Parameter</th>
-<th scope="col" class="org-left">Bedeutung</th>
-<th scope="col" class="org-left">Default</th>
+<th scope="col" class="org-left">**Parameter**</th>
+<th scope="col" class="org-left">**Description**</th>
+<th scope="col" class="org-left">**Default**</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td class="org-left">-t</td>
-<td class="org-left">Name der Sprachtabelle in liblouis</td>
+<td class="org-left">Name of the language table in liblouis</td>
 <td class="org-left">de-g2.ctb</td>
 </tr>
 </tbody>
@@ -131,7 +131,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 <tbody>
 <tr>
 <td class="org-left">-inv</td>
-<td class="org-left">Wenn eingegeben, wird das Bild invertiert</td>
+<td class="org-left">If set, the image will be inverted</td>
 <td class="org-left">False</td>
 </tr>
 </tbody>
@@ -139,36 +139,22 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 <tbody>
 <tr>
 <td class="org-left">-d</td>
-<td class="org-left">Ausgabeverzeichniss mit `.STL`-Dateien</td>
-<td class="org-left">`workspace/out_stl`</td>
+<td class="org-left">Output directory with .STL-Data</td>
+<td class="org-left">workspace/out<sub>stl</sub></td>
 </tr>
 </tbody>
 
 <tbody>
 <tr>
 <td class="org-left"><inputs></td>
-<td class="org-left">Positionalles Parameter. Es werden</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">die Dateiennamen leerzeichengetrennt</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">erwartet</td>
+<td class="org-left">Positional parameter. The filenames are expected separated by space</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 
 
-<a id="orgbbe410d"></a>
+<a id="orgcafad96"></a>
 
 ### Examples
 
@@ -186,7 +172,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
         python main.py ./examples/hello_world.png ./examples/braille.png
 
 
-<a id="org0527397"></a>
+<a id="orgdd393fc"></a>
 
 ### Additional options
 
