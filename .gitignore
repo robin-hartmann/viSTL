@@ -335,7 +335,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# .STLs
-*.stl
-
 # End of https://www.gitignore.io/api/linux,macos,python,windows,pycharm+all,intellij+all
+
+/workspace/**/*.png
+/workspace/**/*.stl
+/workspace/**/*.txt
