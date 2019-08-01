@@ -12,7 +12,24 @@ def unicode2png(text, fname):
     font_type = PATH_FONT_WIN if is_win() else PATH_FONT_UNIX
     font = ImageFont.truetype(font_type, 100)
     length, width = adjustImageSize(text, font)
-    img = Image.new(MODE_CREATION_PNG, (length, width), color=back_color)
+
+    # Line/character counting
+    num_lines = 1
+    num_chars = len(text)
+    max_chars = num_chars
+    for c in text:
+        if c == '\n':
+            num_lines += 1
+            if num_chars > max_chars:
+                max_chars = num_chars
+
+            num_chars = 0
+        else:
+            num_chars += 1
+
+    img = Image.new(MODE_CREATION_PNG,
+                    (max_chars, width * num_lines),
+                    color=back_color)
     d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
     d.text((0, 0), text, fill=text_color, font=font)
     img.save(fname)
