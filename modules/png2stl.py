@@ -10,7 +10,8 @@ def invert_image(fname):
     return asarray(ImageOps.invert(Image.open(fname)))
 
 
-def png2stl(fname_png, fname_stl, should_invert=False, smoothing=0, red_factor=1, scale=0.1, min_thickness_percent=0.1):
+def png2stl(fname_png, fname_stl, should_invert=False, smoothing=0, red_factor=1, scale=0.1, min_thickness_percent=0.1,
+            max_width=MAX_WIDTH, max_height=MAX_HEIGHT, max_depth=MAX_DEPTH):
     if should_invert:
         data = invert_image(fname_png)
     else:
@@ -22,9 +23,9 @@ def png2stl(fname_png, fname_stl, should_invert=False, smoothing=0, red_factor=1
         data,
         fname_stl,
         scale=scale,
-        max_width=MAX_WIDTH,
-        max_height=MAX_HEIGHT,
-        max_depth=MAX_DEPTH,
+        max_width=max_width,
+        max_height=max_height,
+        max_depth=max_depth,
         solid=True,
         min_thickness_percent=min_thickness_percent,
     )
