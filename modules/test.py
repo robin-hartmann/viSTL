@@ -26,10 +26,12 @@ def test_braille2stl():
     png2stl(
         fname_png,
         fname_stl,
-        smoothing=2,
+        smoothing=1.5,
         red_factor=4,
-        scale=0.012,
-        min_thickness_percent=0.2)
+        scale=0.006,
+        min_thickness_percent=0.9,
+        max_height=10,
+        max_width=30)
 
 
 def test_txt2braille():
