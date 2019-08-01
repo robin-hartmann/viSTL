@@ -26,7 +26,8 @@ def test_braille2stl():
         OUTPUT_DIR,
         smoothing=2,
         red_factor=4,
-        scale=0.009,
+        scale=0.012,
+        min_thickness_percent=0.2
     )
 
 
