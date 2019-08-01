@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [**viSTL: Visual to .STL**](#org8d22e61)
-    1.  [Requirements](#orge6d9fb3)
-        1.  [All platforms](#org855f172)
-        2.  [Linux](#org73d664f)
-        3.  [MacOS](#orgb8eba81)
-        4.  [Windows](#org65df5b4)
-        5.  [All others platforms except Windows](#org5fe3bda)
-    2.  [Installation](#org5fefaf0)
-    3.  [Running in CLI](#org1214c63)
-        1.  [Getting help](#org2899444)
-        2.  [Examples](#orgcafad96)
-        3.  [Additional options](#orgdd393fc)
+1.  [**viSTL: Visual to .STL**](#org88a8f6e)
+    1.  [Requirements](#org940d3b0)
+        1.  [All platforms](#orgffd2873)
+        2.  [Linux](#orgf33f6ef)
+        3.  [MacOS](#org1412caa)
+        4.  [Windows](#org92153eb)
+        5.  [All others platforms except Windows](#org01a12d6)
+    2.  [Installation](#orgdeb24e1)
+    3.  [Running in CLI](#org87f79de)
+        1.  [Getting help](#orgd1d40bb)
+        2.  [Examples](#org6e29105)
+        3.  [Additional options](#orgf62931e)
 
 
-<a id="org8d22e61"></a>
+<a id="org88a8f6e"></a>
 
 # **viSTL: Visual to .STL**
 
 
-<a id="orge6d9fb3"></a>
+<a id="org940d3b0"></a>
 
 ## Requirements
 
 
-<a id="org855f172"></a>
+<a id="orgffd2873"></a>
 
 ### All platforms
 
@@ -35,7 +35,7 @@
         pip install pipenv
 
 
-<a id="org73d664f"></a>
+<a id="orgf33f6ef"></a>
 
 ### Linux
 
@@ -50,7 +50,7 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
         sudo apt-get install liblouis-bin
 
 
-<a id="orgb8eba81"></a>
+<a id="org1412caa"></a>
 
 ### MacOS
 
@@ -59,14 +59,14 @@ Install these packages before building the `liblouis`:
     brew install automake libtool pkg-config texinfo
 
 
-<a id="org65df5b4"></a>
+<a id="org92153eb"></a>
 
 ### Windows
 
 Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
 
 
-<a id="org5fe3bda"></a>
+<a id="org01a12d6"></a>
 
 ### All others platforms except Windows
 
@@ -74,7 +74,7 @@ Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
 
 
-<a id="org5fefaf0"></a>
+<a id="orgdeb24e1"></a>
 
 ## Installation
 
@@ -83,7 +83,7 @@ The programm uses `pipenv` as the package and virtual env manager. All the depen
     pipenv install
 
 
-<a id="org1214c63"></a>
+<a id="org87f79de"></a>
 
 ## Running in CLI
 
@@ -92,7 +92,7 @@ Firstly, you'll need to get into the program's virtual environment:
     pipenv shell
 
 
-<a id="org2899444"></a>
+<a id="orgd1d40bb"></a>
 
 ### Getting help
 
@@ -114,9 +114,9 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">**Parameter**</th>
-<th scope="col" class="org-left">**Description**</th>
-<th scope="col" class="org-left">**Default**</th>
+<th scope="col" class="org-left">Parameter</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Default</th>
 </tr>
 </thead>
 
@@ -140,7 +140,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 <tr>
 <td class="org-left">-d</td>
 <td class="org-left">Output directory with .STL-Data</td>
-<td class="org-left">workspace/out<sub>stl</sub></td>
+<td class="org-left">`workspace/out_stl`</td>
 </tr>
 </tbody>
 
@@ -154,7 +154,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 </table>
 
 
-<a id="orgcafad96"></a>
+<a id="org6e29105"></a>
 
 ### Examples
 
@@ -172,7 +172,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
         python main.py ./examples/hello_world.png ./examples/braille.png
 
 
-<a id="orgdd393fc"></a>
+<a id="orgf62931e"></a>
 
 ### Additional options
 
