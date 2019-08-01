@@ -41,14 +41,16 @@ def test_txt2braille():
 def test_txt2braille_big_en():
     txt = EXAMPLES_DIR + 'dickens.txt'
     braille = text2braille(txt, 'en-GB-g2.ctb')
-    print('Dickens:\n"%s"' % braille)
+    file = open(OUTPUT_DIR + "test_big_en.txt", "w")
+    file.write(braille)
     return braille
 
 
 def test_txt2braille_big_de():
     txt = EXAMPLES_DIR + 'goethe.txt'
     braille = text2braille(txt, DEFAULT_TABLE)
-    print('Goethe:\n"%s"' % braille)
+    file = open(OUTPUT_DIR + "test_big_de.txt", "w")
+    file.write(braille)
     return braille
 
 
@@ -84,5 +86,7 @@ def run_tests():
     test_img2stl()
     test_braille2stl()
     test_txt2braille()
-    test_braille2stl_big_en(test_txt2braille_big_en())
-    test_braille2stl_big_de(test_txt2braille_big_de())
+    big_en_braille = test_txt2braille_big_en()
+    big_de_braille = test_txt2braille_big_de()
+    test_braille2stl_big_en(big_en_braille)
+    test_braille2stl_big_de(big_de_braille)
