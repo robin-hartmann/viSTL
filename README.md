@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [**viSTL: Visual to .STL**](#org0620943)
-    1.  [Requirements](#org7b21581)
-        1.  [All platforms](#org8315d7e)
-        2.  [Linux](#orgd9c3d22)
-        3.  [MacOS](#orgc79abc1)
-        4.  [Windows](#orgfdd13f0)
-        5.  [All others platforms except Windows](#org787c181)
-    2.  [Installation](#org106501a)
-    3.  [Running in CLI](#org4395231)
-        1.  [Getting help](#org73c8fd4)
-        2.  [Examples](#org02b7a9e)
-        3.  [Additional options](#org0f5767d)
+1.  [**viSTL: Visual to .STL**](#orgb4e5bf4)
+    1.  [Requirements](#org42d7638)
+        1.  [All platforms](#org26ffc1d)
+        2.  [Linux](#orgc8752ac)
+        3.  [MacOS](#org945c82d)
+        4.  [Windows](#orga446c34)
+        5.  [All others platforms except Windows](#org4fbcbd7)
+    2.  [Installation](#orgd59a21d)
+    3.  [Running in CLI](#org4b764a9)
+        1.  [Getting help](#org3f1b23c)
+        2.  [Examples](#org65e8795)
+        3.  [Additional options](#org3fb9a32)
 
 
-<a id="org0620943"></a>
+<a id="orgb4e5bf4"></a>
 
 # **viSTL: Visual to .STL**
 
 
-<a id="org7b21581"></a>
+<a id="org42d7638"></a>
 
 ## Requirements
 
 
-<a id="org8315d7e"></a>
+<a id="org26ffc1d"></a>
 
 ### All platforms
 
@@ -35,7 +35,7 @@
         pip install pipenv
 
 
-<a id="orgd9c3d22"></a>
+<a id="orgc8752ac"></a>
 
 ### Linux
 
@@ -50,7 +50,7 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
         sudo apt-get install liblouis-bin
 
 
-<a id="orgc79abc1"></a>
+<a id="org945c82d"></a>
 
 ### MacOS
 
@@ -59,22 +59,22 @@ Install these packages before building the `liblouis`:
     brew install automake libtool pkg-config texinfo
 
 
-<a id="orgfdd13f0"></a>
+<a id="orga446c34"></a>
 
 ### Windows
 
 Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
 
 
-<a id="org787c181"></a>
+<a id="org4fbcbd7"></a>
 
 ### All others platforms except Windows
 
-   Make sure that `lou_translate` can be executed from your shell directly, without specifying the path. Or just add it to your PATH environment variable.
+Make sure that `lou_translate` can be executed from your shell directly, without specifying the path. Or just add it to your PATH environment variable.
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
 
 
-<a id="org106501a"></a>
+<a id="orgd59a21d"></a>
 
 ## Installation
 
@@ -83,7 +83,7 @@ The programm uses `pipenv` as the package and virtual env manager. All the depen
     pipenv install
 
 
-<a id="org4395231"></a>
+<a id="org4b764a9"></a>
 
 ## Running in CLI
 
@@ -92,7 +92,7 @@ Firstly, you'll need to get into the program's virtual environment:
     pipenv shell
 
 
-<a id="org73c8fd4"></a>
+<a id="org3f1b23c"></a>
 
 ### Getting help
 
@@ -146,7 +146,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
 <tbody>
 <tr>
-<td class="org-left">`<inputs>`</td>
+<td class="org-left">inputs</td>
 <td class="org-left">Positional parameter. The filenames are expected separated by space</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -154,7 +154,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 </table>
 
 
-<a id="org02b7a9e"></a>
+<a id="org65e8795"></a>
 
 ### Examples
 
@@ -172,7 +172,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
         python main.py ./examples/hello_world.png ./examples/braille.png
 
 
-<a id="org0f5767d"></a>
+<a id="org3fb9a32"></a>
 
 ### Additional options
 
