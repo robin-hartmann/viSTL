@@ -4,7 +4,7 @@ from util import is_win
 MODE_CREATION_PNG = 'RGBA'
 PATH_FONT_WIN = 'third/fonts/UBraille.ttf'
 PATH_FONT_UNIX = 'third/fonts/applebraille.ttf'
-
+FONT_FACTOR = 2
 
 def unicode2png(text, fname):
     back_color = (0, 0, 0, 255)
@@ -27,8 +27,12 @@ def unicode2png(text, fname):
         else:
             num_chars += 1
 
+    print("Text len(): %s" % len(text))
+    print("Length (adjust): %s" % length)
+    print("Number of print chars: %s" % max_chars)
+
     img = Image.new(MODE_CREATION_PNG,
-                    (max_chars, width * num_lines),
+                    (FONT_FACTOR * max_chars, width * num_lines),
                     color=back_color)
     d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
     d.text((0, 0), text, fill=text_color, font=font)
@@ -39,6 +43,6 @@ def adjustImageSize(text, font):
     text_size = font.getsize(text)
     length = text_size[0]
     width = text_size[1]
-    length += -15
-    width += 5
+    #length += -15
+    #width += 5
     return length, width
