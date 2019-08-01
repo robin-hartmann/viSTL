@@ -1,45 +1,11 @@
-# -*- coding: utf-8 -*-
 import argparse
 import os
 
+from const import OUTPUT_DIR, DEFAULT_INPUT_DIR
 from text2braille import text2braille
 from unicode2png import unicode2png
 from png2stl import png2stl
-
-EXAMPLES_DIR = "examples/"
-WORKSPACE_DIR = "workspace/"
-OUTPUT_DIR = WORKSPACE_DIR + "out_stl/"
-DEFAULT_INPUT_DIR = WORKSPACE_DIR + "in_png_txt/"
-
-
-def test_img2stl():
-    fname = EXAMPLES_DIR + "hello_world.png"
-    print("Processing test image: %s" % fname)
-    png2stl(
-        fname,
-        OUTPUT_DIR,
-        smoothing=1,
-        scale=0.15,
-    )
-
-# @todo
-def test_braille2stl():
-    braille = u"⠠⠓⠑⠇⠇⠕⠀⠠⠸⠺⠖"
-    print("Processing braille: '%s'" % "Hello World!")
-    png = EXAMPLES_DIR + "braille_to_png.png"
-    unicode2png(braille, png)
-    png2stl(
-        png,
-        OUTPUT_DIR,
-        smoothing=2,
-        red_factor=4,
-        scale=0.009,
-    )
-
-
-# @todo
-def test_txt2braille():
-    raise NotImplementedError
+from test import run_tests
 
 
 def process_text(fname, parsed_args):
@@ -112,8 +78,6 @@ def parse_args():
 def run(parsed_args):
     if parsed_args.t:
         print("Running tests...")
-        # test_img2stl()
-        test_braille2stl()
-        # test_txt2braille() @todo
+        run_tests()
     else:
         process_inputs(parsed_args)
