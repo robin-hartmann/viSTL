@@ -21,6 +21,7 @@ There is already a package in all main Linux distributions repositories.
 -   **Arch-based distros**:
 
         sudo pacman -S liblouis
+
 -   **Debian-based distros**:
 
         sudo apt-get install liblouis-bin
