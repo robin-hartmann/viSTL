@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [**viSTL: Visual to .STL**](#org88a8f6e)
-    1.  [Requirements](#org940d3b0)
-        1.  [All platforms](#orgffd2873)
-        2.  [Linux](#orgf33f6ef)
-        3.  [MacOS](#org1412caa)
-        4.  [Windows](#org92153eb)
-        5.  [All others platforms except Windows](#org01a12d6)
-    2.  [Installation](#orgdeb24e1)
-    3.  [Running in CLI](#org87f79de)
-        1.  [Getting help](#orgd1d40bb)
-        2.  [Examples](#org6e29105)
-        3.  [Additional options](#orgf62931e)
+1.  [**viSTL: Visual to .STL**](#org0620943)
+    1.  [Requirements](#org7b21581)
+        1.  [All platforms](#org8315d7e)
+        2.  [Linux](#orgd9c3d22)
+        3.  [MacOS](#orgc79abc1)
+        4.  [Windows](#orgfdd13f0)
+        5.  [All others platforms except Windows](#org787c181)
+    2.  [Installation](#org106501a)
+    3.  [Running in CLI](#org4395231)
+        1.  [Getting help](#org73c8fd4)
+        2.  [Examples](#org02b7a9e)
+        3.  [Additional options](#org0f5767d)
 
 
-<a id="org88a8f6e"></a>
+<a id="org0620943"></a>
 
 # **viSTL: Visual to .STL**
 
 
-<a id="org940d3b0"></a>
+<a id="org7b21581"></a>
 
 ## Requirements
 
 
-<a id="orgffd2873"></a>
+<a id="org8315d7e"></a>
 
 ### All platforms
 
@@ -35,7 +35,7 @@
         pip install pipenv
 
 
-<a id="orgf33f6ef"></a>
+<a id="orgd9c3d22"></a>
 
 ### Linux
 
@@ -50,7 +50,7 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
         sudo apt-get install liblouis-bin
 
 
-<a id="org1412caa"></a>
+<a id="orgc79abc1"></a>
 
 ### MacOS
 
@@ -59,14 +59,14 @@ Install these packages before building the `liblouis`:
     brew install automake libtool pkg-config texinfo
 
 
-<a id="org92153eb"></a>
+<a id="orgfdd13f0"></a>
 
 ### Windows
 
 Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
 
 
-<a id="org01a12d6"></a>
+<a id="org787c181"></a>
 
 ### All others platforms except Windows
 
@@ -74,7 +74,7 @@ Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
 
 
-<a id="orgdeb24e1"></a>
+<a id="org106501a"></a>
 
 ## Installation
 
@@ -83,7 +83,7 @@ The programm uses `pipenv` as the package and virtual env manager. All the depen
     pipenv install
 
 
-<a id="org87f79de"></a>
+<a id="org4395231"></a>
 
 ## Running in CLI
 
@@ -92,7 +92,7 @@ Firstly, you'll need to get into the program's virtual environment:
     pipenv shell
 
 
-<a id="orgd1d40bb"></a>
+<a id="org73c8fd4"></a>
 
 ### Getting help
 
@@ -146,7 +146,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
 <tbody>
 <tr>
-<td class="org-left"><inputs></td>
+<td class="org-left">`<inputs>`</td>
 <td class="org-left">Positional parameter. The filenames are expected separated by space</td>
 <td class="org-left">&#xa0;</td>
 </tr>
@@ -154,7 +154,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 </table>
 
 
-<a id="org6e29105"></a>
+<a id="org02b7a9e"></a>
 
 ### Examples
 
@@ -172,7 +172,7 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
         python main.py ./examples/hello_world.png ./examples/braille.png
 
 
-<a id="orgf62931e"></a>
+<a id="org0f5767d"></a>
 
 ### Additional options
 
