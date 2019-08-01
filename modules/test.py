@@ -69,10 +69,10 @@ def test_braille2stl_big_en(braille):
     png2stl(
         fname_png,
         fname_stl,
-        smoothing=2,
+        smoothing=1.5,
         red_factor=4,
         scale=0.012,
-        min_thickness_percent=0.2)
+        min_thickness_percent=0.9)
 
 
 def test_braille2stl_big_de(braille):
@@ -83,10 +83,10 @@ def test_braille2stl_big_de(braille):
     png2stl(
         fname_png,
         fname_stl,
-        smoothing=2,
+        smoothing=1.5,
         red_factor=4,
         scale=0.012,
-        min_thickness_percent=0.2)
+        min_thickness_percent=0.9)
 
 
 def run_tests():
