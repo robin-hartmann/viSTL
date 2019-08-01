@@ -4,7 +4,7 @@ from util import is_win
 MODE_CREATION_PNG = 'RGBA'
 PATH_FONT_WIN = 'third/fonts/UBraille.ttf'
 PATH_FONT_UNIX = 'third/fonts/applebraille.ttf'
-FONT_FACTOR = 2
+
 
 def unicode2png(text, fname):
     back_color = (0, 0, 0, 255)
@@ -32,7 +32,7 @@ def unicode2png(text, fname):
     print("Number of print chars: %s" % max_chars)
 
     img = Image.new(MODE_CREATION_PNG,
-                    (FONT_FACTOR * max_chars, width * num_lines),
+                    ((length / len(text)) * max_chars, width * num_lines),
                     color=back_color)
     d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
     d.text((0, 0), text, fill=text_color, font=font)
