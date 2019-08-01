@@ -1,13 +1,16 @@
 from PIL import Image, ImageDraw, ImageFont
+from util import is_win
 
 MODE_CREATION_PNG = 'RGBA'
-PATH_FONT = 'third/fonts/UBraille.ttf'
+PATH_FONT_WIN = 'third/fonts/UBraille.ttf'
+PATH_FONT_UNIX = 'third/fonts/applebraille.ttf'
 
 
 def unicode2png(text, fname):
     back_color = (0, 0, 0, 255)
     text_color = (255, 255, 255)
-    font = ImageFont.truetype(PATH_FONT, 100)
+    font_type = PATH_FONT_WIN if is_win() else PATH_FONT_UNIX
+    font = ImageFont.truetype(font_type, 100)
     length, width = adjustImageSize(text, font)
     img = Image.new(MODE_CREATION_PNG, (length, width), color=back_color)
     d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)

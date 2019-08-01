@@ -1,6 +1,6 @@
 from const import TABLES_PATH, BIN_NAME, BIN_PATH_WINDOWS
-from platform import system
 from subprocess import check_output
+from util import is_win
 
 
 def text2braille(fname, tname):
@@ -8,10 +8,6 @@ def text2braille(fname, tname):
     tables = get_table_path('unicode.dis') + ',' + get_table_path(tname)
     braille = check_output([binary, tables], stdin=open(fname, 'r'))
     return braille
-
-
-def is_win():
-    return system() == 'Windows'
 
 
 def get_bin_path():
