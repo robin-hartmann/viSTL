@@ -15,8 +15,8 @@ def unicode2png(text, fname):
 
     # Line/character counting
     num_lines = 1
-    num_chars = len(text)
-    max_chars = num_chars
+    max_chars = 0
+    num_chars = 0
     for c in text:
         if c == '\n':
             num_lines += 1
@@ -27,9 +27,8 @@ def unicode2png(text, fname):
         else:
             num_chars += 1
 
-    print("Text len(): %s" % len(text))
-    print("Length (adjust): %s" % length)
-    print("Number of print chars: %s" % max_chars)
+    if num_lines == 1:
+        max_chars = len(text)
 
     img = Image.new(MODE_CREATION_PNG,
                     ((length / len(text)) * max_chars, width * num_lines),
