@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from modules.cli import parse_args, run as run_cli
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     parsed_args = parse_args()
 
     # @todo
