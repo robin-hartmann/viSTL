@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 from const import DEFAULT_INPUT_DIR, OUTPUT_DIR
@@ -5,6 +6,15 @@ from text2braille import text2braille
 from unicode2png import unicode2png
 from png2stl import png2stl
 from util import get_new_fname
+
+
+# for printing "⠓⠑⠇" the perfect settings were
+# smoothing=1.5,
+# red_factor=4
+# scale=0.006
+# max_width=30,
+# max_height=10,
+# min_thickness_percent=0.9
 
 
 def process_text(fname_txt, parsed_args):
