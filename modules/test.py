@@ -1,92 +1,73 @@
 # -*- coding: utf-8 -*-
-from const import EXAMPLES_DIR, OUTPUT_DIR, DEFAULT_INPUT_DIR, DEFAULT_TABLE
-from util import get_new_fname
+from const import EXAMPLES_DIR, OUTPUT_DIR, DEFAULT_TABLE
 from text2braille import text2braille
 from unicode2png import unicode2png
-from png2stl import png2stl
+from processor import process_inputs
+from args_parser import parse_args
+
+
+def run_with_args(args):
+    print('Doing test run using args "%s"' % args)
+    parsed_args = parse_args(args)
+    process_inputs(parsed_args)
 
 
 def test_img2stl():
+    print('Running test img2stl')
     fname_png = EXAMPLES_DIR + 'hello_world.png'
-    print('Processing test image: "%s"' % fname_png)
-    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
-    png2stl(
-        fname_png,
-        fname_stl,
-        smoothing=1,
-        scale=0.15)
+    run_with_args([fname_png])
 
 
-def test_braille2stl():
-    braille = u"⠠⠓⠑⠇⠇⠕⠀⠠⠸⠺⠖"
-    print('Processing braille2stl: Hello World!')
-    fname_png = DEFAULT_INPUT_DIR + 'test_braille2stl.png'
-    unicode2png(braille, fname_png)
-    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
-    png2stl(
-        fname_png,
-        fname_stl,
-        smoothing=1.5,
-        red_factor=4,
-        scale=0.006,
-        min_thickness_percent=0.9,
-        max_height=10,
-        max_width=30)
+def base_test_txt2braille(fname_txt, fname_txt_braille, tname=DEFAULT_TABLE):
+    print('Running test txt2braille with file "%s" and table "%s"' % (fname_txt, tname))
+    braille = text2braille(fname_txt, tname)
+    print('Result: "%s"' % braille)
+    print('Saving result to "%s"' % fname_txt_braille)
+    file_txt_braille = open(fname_txt_braille, "w")
+    file_txt_braille.write(braille)
+    return braille
 
 
 def test_txt2braille():
-    print('Processing txt2braille: Hello World!')
-    txt = EXAMPLES_DIR + 'hello_world.txt'
-    braille = text2braille(txt, DEFAULT_TABLE)
-    file = open(OUTPUT_DIR + "txt2braille.txt", "w")
-    file.write(braille)
-    print(braille)
+    fname_txt = EXAMPLES_DIR + 'hello_world.txt'
+    fname_txt_braille = OUTPUT_DIR + 'txt2braille.txt'
+    return base_test_txt2braille(fname_txt, fname_txt_braille)
 
 
 def test_txt2braille_big_en():
-    print('Processing txt2braille: Dickens')
-    txt = EXAMPLES_DIR + 'dickens.txt'
-    braille = text2braille(txt, 'en-GB-g2.ctb')
-    file = open(OUTPUT_DIR + "test_big_en.txt", "w")
-    file.write(braille)
-    return braille
+    fname_txt = EXAMPLES_DIR + 'dickens.txt'
+    fname_txt_braille = OUTPUT_DIR + 'test_big_en.txt'
+    return base_test_txt2braille(fname_txt, fname_txt_braille, 'en-GB-g2.ctb')
 
 
 def test_txt2braille_big_de():
-    print('Processing txt2braille: Goethe')
-    txt = EXAMPLES_DIR + 'goethe.txt'
-    braille = text2braille(txt, DEFAULT_TABLE)
-    file = open(OUTPUT_DIR + "test_big_de.txt", "w")
-    file.write(braille)
-    return braille
+    fname_txt = EXAMPLES_DIR + 'goethe.txt'
+    fname_txt_braille = OUTPUT_DIR + 'test_big_de.txt'
+    return base_test_txt2braille(fname_txt, fname_txt_braille)
+
+
+def base_test_braille2stl(braille, fname_png):
+    print('Running test braille2stl with braille of length %d' % len(braille))
+    unicode2png(braille, fname_png)
+    run_with_args([fname_png])
+
+
+def test_braille2stl():
+    braille = u'⠠⠓⠑⠇⠇⠕⠀⠠⠸⠺⠖'  # "Hello World!"
+    fname_png = OUTPUT_DIR + 'test_braille2stl.png'
+    base_test_braille2stl(braille, fname_png)
 
 
 def test_braille2stl_big_en(braille):
     print('Processing braille: Dickens')
-    fname_png = DEFAULT_INPUT_DIR + 'test_braille2stl_big_en.png'
-    unicode2png(braille, fname_png)
-    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
-    png2stl(
-        fname_png,
-        fname_stl,
-        smoothing=1.5,
-        red_factor=4,
-        scale=0.012,
-        min_thickness_percent=0.9)
+    fname_png = OUTPUT_DIR + 'test_braille2stl_big_en.png'
+    base_test_braille2stl(braille, fname_png)
 
 
 def test_braille2stl_big_de(braille):
     print('Processing braille: Goethe')
-    fname_png = DEFAULT_INPUT_DIR + 'test_braille2stl_big_de.png'
-    unicode2png(braille, fname_png)
-    fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
-    png2stl(
-        fname_png,
-        fname_stl,
-        smoothing=1.5,
-        red_factor=4,
-        scale=0.012,
-        min_thickness_percent=0.9)
+    fname_png = OUTPUT_DIR + 'test_braille2stl_big_de.png'
+    base_test_braille2stl(braille, fname_png)
 
 
 def run_tests():

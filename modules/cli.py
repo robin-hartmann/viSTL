@@ -7,4 +7,5 @@ def run(parsed_args):
         print('Running tests...')
         run_tests()
     else:
+        print('Processing inputs...')
         process_inputs(parsed_args)
