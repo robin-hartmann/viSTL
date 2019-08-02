@@ -1,4 +1,6 @@
 
+
+# viSTL: Visual to .STL
 # Table of Contents
 
 1.  [**viSTL: Visual to .STL**](#orgb4e5bf4)
@@ -14,18 +16,7 @@
         2.  [Examples](#org65e8795)
         3.  [Additional options](#org3fb9a32)
 
-
-<a id="orgb4e5bf4"></a>
-
-# **viSTL: Visual to .STL**
-
-
-<a id="org42d7638"></a>
-
 ## Requirements
-
-
-<a id="org26ffc1d"></a>
 
 ### All platforms
 
@@ -33,11 +24,15 @@
 -   [Pipenv](https://github.com/pypa/pipenv)
 
         pip install pipenv
+        
+### Windows
 
+Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The required binary from `liblouis` is already included in this repository.
 
-<a id="orgc8752ac"></a>
+### UNIX
+Make sure that `lou_translate` from `liblouis` can be executed from your shell directly, without specifying the path. Just add it to your PATH environment variable, if it isn't already included. Keep reading to find out how to get `lou_translate`.
 
-### Linux
+#### Linux
 
 There should be a `liblouis` package in all main Linux distributions. Just to list a few:
 
@@ -49,32 +44,13 @@ There should be a `liblouis` package in all main Linux distributions. Just to li
 
         sudo apt-get install liblouis-bin
 
-
-<a id="org945c82d"></a>
-
-### MacOS
+#### macOS
 
 Install these packages before building the `liblouis`:
 
     brew install automake libtool pkg-config texinfo
 
-
-<a id="orga446c34"></a>
-
-### Windows
-
-Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The `liblouis` package comes preinstalled as third-party library.
-
-
-<a id="org4fbcbd7"></a>
-
-### All others platforms except Windows
-
-Make sure that `lou_translate` can be executed from your shell directly, without specifying the path. Or just add it to your PATH environment variable.
 For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
-
-
-<a id="orgd59a21d"></a>
 
 ## Installation
 
@@ -123,8 +99,16 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 <tbody>
 <tr>
 <td class="org-left">-t</td>
-<td class="org-left">Name of the language table in liblouis</td>
-<td class="org-left">de-g2.ctb</td>
+<td class="org-left">Name of the language table in liblouis (see `third/liblouis/tables`)</td>
+<td class="org-left">`de-g2.ctb`</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+<td class="org-left">-d</td>
+<td class="org-left">Input directory to search for input files if no inputs are specified</td>
+<td class="org-left">`workspace/in_png_txt/`</td>
 </tr>
 </tbody>
 
@@ -138,16 +122,8 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
 <tbody>
 <tr>
-<td class="org-left">-d</td>
-<td class="org-left">Output directory with .STL-Data</td>
-<td class="org-left">`workspace/out_stl`</td>
-</tr>
-</tbody>
-
-<tbody>
-<tr>
 <td class="org-left">inputs</td>
-<td class="org-left">Positional parameter. The filenames are expected separated by space</td>
+<td class="org-left">Positional parameter with one or multiple input files separated by spaces</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
