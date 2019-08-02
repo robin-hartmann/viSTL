@@ -11,6 +11,7 @@ from util import get_new_fname
 # for printing "⠓⠑⠇" the perfect settings were
 # smoothing=1.5,
 # red_factor=4
+# scale=0.006
 # max_width=30,
 # max_height=10,
 # min_thickness_percent=0.9
