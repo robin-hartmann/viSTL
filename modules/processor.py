@@ -29,9 +29,12 @@ def process_text(fname_txt, parsed_args):
         fname_png,
         fname_stl,
         should_invert=parsed_args.inv,
-        smoothing=2,
+        smoothing=1.5,
         red_factor=4,
-        scale=0.09
+        scale=0.006,
+        max_width=11 * width_in_chars,
+        max_depth=12 * height_in_chars,
+        min_thickness_percent=0.9
     )
 
 
