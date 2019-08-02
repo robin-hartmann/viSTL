@@ -6,7 +6,8 @@ from util import is_win
 def text2braille(fname, tname):
     binary = get_bin_path()
     tables = get_table_path('unicode.dis') + ',' + get_table_path(tname)
-    braille = check_output([binary, tables], stdin=open(fname, 'r'))
+    output = check_output([binary, tables], stdin=open(fname, 'r'))
+    braille = unicode(output.decode('utf-8')).replace('\r\n', '\n')
     return braille
 
 

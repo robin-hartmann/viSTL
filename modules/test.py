@@ -21,10 +21,11 @@ def test_img2stl():
 def base_test_txt2braille(fname_txt, fname_txt_braille, tname=DEFAULT_TABLE):
     print('Running test txt2braille with file "%s" and table "%s"' % (fname_txt, tname))
     braille = text2braille(fname_txt, tname)
-    print('Result: "%s"' % braille)
+    braille_utf8 = braille.encode('utf-8')
+    print('Result: "%s"' % braille_utf8)
     print('Saving result to "%s"' % fname_txt_braille)
     file_txt_braille = open(fname_txt_braille, "w")
-    file_txt_braille.write(braille)
+    file_txt_braille.write(braille_utf8)
     return braille
 
 
