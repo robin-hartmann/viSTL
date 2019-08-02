@@ -14,7 +14,9 @@ def invert_image(fname):
         print('Inversion for RGBA: Not yet implemented')
         return asarray(im)
 
-
+# be careful:
+# max_width and max_depth specify the area of the base
+# and max_height specifies the height of the model
 def png2stl(fname_png, fname_stl, should_invert=False, smoothing=0, red_factor=1, scale=0.1, min_thickness_percent=0.1,
             max_width=MAX_WIDTH, max_height=MAX_HEIGHT, max_depth=MAX_DEPTH):
     if should_invert:
