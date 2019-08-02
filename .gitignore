@@ -340,3 +340,4 @@ $RECYCLE.BIN/
 /workspace/**/*.png
 /workspace/**/*.stl
 /workspace/**/*.txt
+!/workspace/out/
