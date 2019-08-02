@@ -7,7 +7,12 @@ from stl_tools import numpy2stl
 
 
 def invert_image(fname):
-    return asarray(ImageOps.invert(Image.open(fname)))
+    im = Image.open(fname)
+    if im.mode == 'RGB':
+        return asarray(ImageOps.invert(im))
+    else:
+        print('Inversion for RGBA: Not yet implemented')
+        return asarray(im)
 
 
 def png2stl(fname_png, fname_stl, should_invert=False, smoothing=0, red_factor=1, scale=0.1, min_thickness_percent=0.1,
