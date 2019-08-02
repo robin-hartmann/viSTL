@@ -11,9 +11,22 @@ def unicode2png(text, fname):
     text_color = (255, 255, 255)
     font_type = PATH_FONT_WIN if is_win() else PATH_FONT_UNIX
     font = ImageFont.truetype(font_type, 100)
-    length, width = adjustImageSize(text, font)
 
-    # Line/character counting
+    im_length, im_width = adjustImageSize(text, font)
+    max_chars, num_lines = get_text_len_width_info(text)
+    pix_length = im_length / len(text) * max_chars
+    pix_width = im_width * num_lines
+
+    img = Image.new(MODE_CREATION_PNG,
+                    (pix_length, pix_width),
+                    color=back_color)
+    d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
+    d.text((0, 0), text, fill=text_color, font=font)
+    img.save(fname)
+    return max_chars, num_lines
+
+
+def get_text_len_width_info(text):
     num_lines = 1
     max_chars = 0
     num_chars = 0
@@ -30,12 +43,7 @@ def unicode2png(text, fname):
     if num_lines == 1:
         max_chars = len(text)
 
-    img = Image.new(MODE_CREATION_PNG,
-                    ((length / len(text)) * max_chars, width * num_lines),
-                    color=back_color)
-    d = ImageDraw.Draw(img, mode=MODE_CREATION_PNG)
-    d.text((0, 0), text, fill=text_color, font=font)
-    img.save(fname)
+    return max_chars, num_lines
 
 
 def adjustImageSize(text, font):
