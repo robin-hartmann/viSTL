@@ -49,7 +49,9 @@ def test_txt2braille_big_de():
 
 def base_test_braille2stl(braille, fname_png):
     print('Running test braille2stl with braille of length %d' % len(braille))
-    unicode2png(braille, fname_png)
+    width_in_chars, height_in_chars = unicode2png(braille, fname_png)
+    print('Width in chars: %s, height in chars: %s'
+          % (width_in_chars, height_in_chars))
     run_with_args([fname_png])
 
 

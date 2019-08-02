@@ -22,7 +22,7 @@ def process_text(fname_txt, parsed_args):
     braille = text2braille(fname_txt, parsed_args.t)
     fname_png = get_new_fname(fname_txt, DEFAULT_INPUT_DIR, 'png')
     print('Rendering braille to png at "%s"' % fname_png)
-    unicode2png(braille, fname_png)
+    width_in_chars, height_in_chars = unicode2png(braille, fname_png)
     fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
     print('Converting png at "%s" to stl at "%s"' % (fname_png, fname_stl))
     png2stl(
