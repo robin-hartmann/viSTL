@@ -98,6 +98,14 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
 <tbody>
 <tr>
+<td class="org-left">&#60;positional&#62;</td>
+<td class="org-left">One or multiple input files separated by spaces</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
 <td class="org-left">-t</td>
 <td class="org-left">Name of the language table in liblouis (see `third/liblouis/tables`)</td>
 <td class="org-left">`de-g2.ctb`</td>
@@ -122,9 +130,9 @@ To get the list of possible CLI-arguments, execute the program with `-h` flag:
 
 <tbody>
 <tr>
-<td class="org-left">inputs</td>
-<td class="org-left">Positional parameter with one or multiple input files separated by spaces</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">-test</td>
+<td class="org-left">If set, tests will be run instead of processing inputs</td>
+<td class="org-left">False</td>
 </tr>
 </tbody>
 </table>
