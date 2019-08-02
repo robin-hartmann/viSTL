@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from const import DEFAULT_INPUT_DIR, OUTPUT_DIR
+from const import OUTPUT_DIR, DEFAULT_INPUT_DIR
 from text2braille import text2braille
 from unicode2png import unicode2png
 from png2stl import png2stl
@@ -20,7 +20,7 @@ from util import get_new_fname
 def process_text(fname_txt, parsed_args):
     print('Translating "%s" to braille...' % fname_txt)
     braille = text2braille(fname_txt, parsed_args.t)
-    fname_png = get_new_fname(fname_txt, DEFAULT_INPUT_DIR, 'png')
+    fname_png = get_new_fname(fname_txt, OUTPUT_DIR, 'png')
     print('Rendering braille to png at "%s"' % fname_png)
     width_in_chars, height_in_chars = unicode2png(braille, fname_png)
     fname_stl = get_new_fname(fname_png, OUTPUT_DIR, 'stl')
