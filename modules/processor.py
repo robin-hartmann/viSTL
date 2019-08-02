@@ -64,7 +64,7 @@ def process_inputs(parsed_args):
         for input_file in parsed_args.inputs:
             process_input(input_file.name, parsed_args)
     else:
-        for path, dirs, files in os.walk(DEFAULT_INPUT_DIR):
+        for path, dirs, files in os.walk(parsed_args.d):
             for filename in files:
                 fullname = os.path.join(path, filename)
                 process_input(fullname, parsed_args)
