@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from const import OUTPUT_DIR, DEFAULT_INPUT_DIR
+from const import OUTPUT_DIR
 from text2braille import text2braille
 from unicode2png import unicode2png
 from png2stl import png2stl
