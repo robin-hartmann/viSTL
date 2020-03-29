@@ -60,9 +60,9 @@ On UNIX systems - if you want to use the text-to-stl feature - you additinally n
 
 ### 🚀 Getting Started
 
-#### Installing the requirements
+#### Installing the dependencies
 
-The project uses `pipenv` as the package and virtual environment manager. All the dependencies and used packages are declared in `Pipfile`. You can either let PyCharm do it or you can do it manually with any Terminal:
+The project uses `pipenv` as the package and virtual environment manager. All the dependencies are declared in `Pipfile`. You can either let PyCharm install them or you can do it manually with any Terminal:
 
 - PyCharm
   - PyCharm should automatically show appropriate notifications in a small yellow bar above the editor, where you just need to select the following options:
