@@ -10,7 +10,7 @@ numpy = "*"
 scipy = "*"
 matplotlib = "*"
 stl-tools = "*"
-pillow = "*"
+pillow = ">=6.2.0"
 
 [requires]
 python_version = "2.7.16"
