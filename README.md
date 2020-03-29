@@ -1,169 +1,162 @@
+# ⠧⠊⠎⠞⠇ viSTL - visual to .STL
 
+CLI App for converting Text and Images to 3D printable Braille and Refliefs
 
-# viSTL: Visual to .STL
-# Table of Contents
+<img src="docs/images/usage.png" height="490">
 
-1.  [**viSTL: Visual to .STL**](#orgb4e5bf4)
-    1.  [Requirements](#org42d7638)
-        1.  [All platforms](#org26ffc1d)
-        2.  [Linux](#orgc8752ac)
-        3.  [MacOS](#org945c82d)
-        4.  [Windows](#orga446c34)
-        5.  [All others platforms except Windows](#org4fbcbd7)
-    2.  [Installation](#orgd59a21d)
-    3.  [Running in CLI](#org4b764a9)
-        1.  [Getting help](#org3f1b23c)
-        2.  [Examples](#org65e8795)
-        3.  [Additional options](#org3fb9a32)
+## ⭐ Features
 
-## Requirements
+- Convert .TXT files to .STL files containing braille
+  - Supports all languages supported by [Liblouis](http://liblouis.org/)
+    - Supports grade 1, 2 and 3 as well as 6-dot and 8-dot braille (depends on language)
+- Convert .PNG files to .STL files containing reliefs
+  - Can also invert images for different results
 
-### All platforms
+## 💡 [Examples](docs/examples.md)
 
--   [Python 2.7](https://www.python.org/downloads/)
--   [Pipenv](https://github.com/pypa/pipenv)
+## 🛠️ Development
 
-        pip install pipenv
-        
-### Windows
+These instructions will get you a copy of this project up and running on your local machine for development and testing purposes.
 
-Firstly, you need to make sure, that you have [Microsoft Visual C++ 9.0](http://aka.ms/vcpython27) preinstalled. The required binary from `liblouis` is already included in this repository.
+### 📋 Prerequisites
 
-### UNIX
-Make sure that `lou_translate` from `liblouis` can be executed from your shell directly, without specifying the path. Just add it to your PATH environment variable, if it isn't already included. Keep reading to find out how to get `lou_translate`.
+- [Python 2.7.16](https://www.python.org/downloads/) - Programming language that lets you work quickly and integrate systems more effectively
+  - Make sure the installer sets up the following:
+    - `pip`
+    - `Add python.exe to Path`
+      - This also adds `pip.exe` and more
+- [Pipenv](https://github.com/pypa/pipenv) - Python Development Workflow for Humans
+  - You don't need to download anything manually, just run `pip install pipenv`
+- [PyCharm](https://www.jetbrains.com/pycharm/) - The Python IDE for Professional Developers
+  - This setup guide contains steps for PyCharm, but you can use any editor you want
 
-#### Linux
+#### Windows
 
-There should be a `liblouis` package in all main Linux distributions. Just to list a few:
+On Windows you additionally need to install [Microsoft Visual C++ Compiler for Python 2.7](http://aka.ms/vcpython27), which is required by the package `stl-tools`.
 
--   **Arch-based distros**:
+#### UNIX
 
-        sudo pacman -S liblouis
+On UNIX systems - if you want to use the text-to-stl feature - you additinally need to get the `lou_translate` executable from `liblouis` and add it to your `PATH` environment variable. How you can get `lou_translate` depends on your platform:
 
--   **Debian-based distros**:
+- Linux
 
-        sudo apt-get install liblouis-bin
+  - There should be a `liblouis` package in all main Linux distributions, which you can use. Just to list a few:
 
-#### macOS
+    ```bash
+    # Arch-based distros
+    sudo pacman -S liblouis
 
-Install these packages before building the `liblouis`:
+    # Debian-based distros
+    sudo apt-get install liblouis-bin
+    ```
 
+- macOS
+
+  - You have to build `liblouis` yourself by following [this document](https://github.com/liblouis/liblouis/blob/master/HACKING). For that to work you need the following packages:
+
+    ```bash
     brew install automake libtool pkg-config texinfo
+    ```
 
-For further information refer to [this document](https://github.com/liblouis/liblouis/blob/master/HACKING).
+### 🚀 Getting Started
 
-## Installation
+#### Installing the requirements
 
-The programm uses `pipenv` as the package and virtual env manager. All the dependencies and used packages are declared in Pipfile. To prepare the environment execute the following command:
+The project uses `pipenv` as the package and virtual environment manager. All the dependencies and used packages are declared in `Pipfile`. You can either let PyCharm do it or you can do it manually with any Terminal:
 
-    pipenv install
+- PyCharm
+  - PyCharm should automatically show appropriate notifications in a small yellow bar above the editor, where you just need to select the following options:
+    1. `Use Pipenv interpreter`
+    1. `Install requirements from Pipfile.lock`
+- Terminal
+  ```bash
+  # run this in the project's root folder
+  pipenv install
+  ```
 
-
-<a id="org4b764a9"></a>
-
-## Running in CLI
+#### Running the program
 
 Firstly, you'll need to get into the program's virtual environment:
 
-    pipenv shell
+```bash
+# run this (and any following commands) in the project's root folder
+pipenv shell
+```
 
+To get the list of possible CLI-arguments, run the program with the `-h` flag:
 
-<a id="org3f1b23c"></a>
+```bash
+python main.py -h
+```
 
-### Getting help
+| Parameter      | Description                                                          | Default         |
+| -------------- | -------------------------------------------------------------------- | --------------- |
+| `<positional>` | One or multiple input files separated by spaces                      |
+| `-t`           | The language table liblouis should use (see `third/liblouis/tables`) | `de-g2.ctb`     |
+| `-d`           | Input directory to search for input files if no inputs are specified | `workspace/in/` |
+| `-inv`         | If set, all images will be inverted                                  | `False`         |
+| `-test`        | If set, tests will be run instead of processing inputs               | `False`         |
 
-To get the list of possible CLI-arguments, execute the program with `-h` flag:
+Examples:
 
-    python main.py -h
+- Converting all .PNGs and .TXTs to .STL:
 
-**Here is the list of possible arguments**:
+  - From default directory (`./workspace/in/`):
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+    ```bash
+    python main.py
+    ```
 
+  - From specific directory:
 
-<colgroup>
-<col  class="org-left" />
+    ```bash
+    python main.py -d ./my/example/dir/
+    ```
 
-<col  class="org-left" />
+- Converting specific images to .STL:
 
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Parameter</th>
-<th scope="col" class="org-left">Description</th>
-<th scope="col" class="org-left">Default</th>
-</tr>
-</thead>
+  ```bash
+  python main.py ./examples/hello_world.png ./examples/braille.png
+  ```
 
-<tbody>
-<tr>
-<td class="org-left">&#60;positional&#62;</td>
-<td class="org-left">One or multiple input files separated by spaces</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
+- Inverting images:
 
-<tbody>
-<tr>
-<td class="org-left">-t</td>
-<td class="org-left">Name of the language table in liblouis (see `third/liblouis/tables`)</td>
-<td class="org-left">`de-g2.ctb`</td>
-</tr>
-</tbody>
+  ```bash
+  python main.py -inv
+  ```
 
-<tbody>
-<tr>
-<td class="org-left">-d</td>
-<td class="org-left">Input directory to search for input files if no inputs are specified</td>
-<td class="org-left">`workspace/in_png_txt/`</td>
-</tr>
-</tbody>
+- Specifying the Braille language:
 
-<tbody>
-<tr>
-<td class="org-left">-inv</td>
-<td class="org-left">If set, the image will be inverted</td>
-<td class="org-left">False</td>
-</tr>
-</tbody>
+  ```
+  python main.py ./examples/dickens.txt -t=en-GB-g2.ctb
+  ```
 
-<tbody>
-<tr>
-<td class="org-left">-test</td>
-<td class="org-left">If set, tests will be run instead of processing inputs</td>
-<td class="org-left">False</td>
-</tr>
-</tbody>
-</table>
+## 🧰 Built With
 
+### 📚 Resources
 
-<a id="org65e8795"></a>
+- [What is Braille](http://www.acb.org/tennessee/braille.html)
+- [Python Unicode HOWTO](https://docs.python.org/2/howto/unicode.html)
 
-### Examples
+### 🏛️ Libraries
 
--   **Converting all .PNGs and .TXTs to .STL**:
-    -   From default directory (`workspace/in_png_txt/`):
+- [Liblouis](http://liblouis.org/) - Braille translator and back-translator
+- [Matplotlib](https://matplotlib.org/) - Comprehensive library for creating static, animated, and interactive visualizations in Python
+- [NumPy](https://numpy.org/) - The fundamental package for scientific computing with Python
+- [Pillow](https://python-pillow.org/) - The friendly Python Imaging Library fork
+- [SciPy](https://www.scipy.org/) - Python-based ecosystem of open-source software for mathematics, science, and engineering
+- [stl_tools](https://github.com/thearn/stl_tools) - Python code to generate STL geometry files from plain text, LaTeX code, and 2D numpy arrays (matrices)
 
-            python main.py
+## 👨‍💻 Authors
 
-    -   From specific directory:
+- Robin Hartmann - [robin-hartmann](https://github.com/robin-hartmann)
+- Oleh Kuzmin - [olegkuzminvic](https://github.com/olegkuzminvic)
+- Alexandr Timchenko - [atimchenko92](https://github.com/atimchenko92)
 
-            python main.py -d /my/example/dir
+## 📃 License
 
--   **Converting specific images to .STL**:
+This project is licensed under the MIT License- see the [LICENSE](LICENSE) file for details.
 
-        python main.py ./examples/hello_world.png ./examples/braille.png
+## 👍 Acknowledgments
 
-
-<a id="org3fb9a32"></a>
-
-### Additional options
-
--   **Inverting images**:
-
-        python main.py -inv
-
--   **Specifying the Braille language**:
-
-        python main.py ./examples/dickens.txt -t=en-GB-g2.ctb
+- Special thanks to [Alex](https://github.com/atimchenko92) and [Oleh](https://github.com/olegkuzminvic) for letting me publish this project
