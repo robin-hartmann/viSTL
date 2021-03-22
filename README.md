@@ -1,6 +1,6 @@
 # ⠧⠊⠎⠞⠇ viSTL - visual to .STL
 
-CLI App for converting Text and Images to 3D printable Braille and Refliefs
+CLI App for converting Text and Images to 3D printable Braille and Reliefs
 
 <img src="docs/images/usage.png" height="490">
 
